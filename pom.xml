@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- Spring Boot fija las versiones compatibles del ecosistema, incluido Spring Framework. -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.1.2</version>
+    <relativePath/>
+  </parent>
+  <groupId>com.tankemd</groupId>
+  <artifactId>pdfreader</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>pdfreader</name>
+  <description>Base del proyecto PDF Reader</description>
+  <!-- Compila para Java 17, aunque Maven se ejecute con otro JDK compatible. -->
+  <properties><java.version>17</java.version></properties>
+  <dependencies>
+    <!-- Extracción de texto nativo, imágenes, trazados y renderizado local del PDF. -->
+    <dependency>
+      <groupId>org.apache.pdfbox</groupId>
+      <artifactId>pdfbox</artifactId>
+      <version>3.0.8</version>
+    </dependency>
+    <!-- API HTTP Spring MVC y soporte de recepción multipart. -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
+    </dependency>
+    <!-- JUnit, aserciones y arranque de Spring para pruebas funcionales y de contrato. -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <!-- Empaqueta el JAR ejecutable y permite arrancar el backend con spring-boot:run. -->
+  <build><plugins><plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+  </plugin></plugins></build>
+</project>
